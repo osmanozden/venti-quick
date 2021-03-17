@@ -1,20 +1,22 @@
-
-<nz-table>
+<nz-table #basicTable [nzData]="companyList" >
   <thead>
   <tr>
     <th>Name</th>
+    <th>Surname</th>
     <th>Age</th>
     <th>Address</th>
-    <th>Action</th>
   </tr>
   </thead>
+  <th>
+    <nz-divider nzType="vertical"></nz-divider>Add New       
+  </th>
   <tbody>
   <tr *ngFor="let data of companyList">
     <td>{{data.name}}</td>
+    <td>{{data.surname}}</td>
     <td>{{data.age}}</td>
     <td>{{data.address}}</td>
     <td>
-      <a>Action 一 {{data.name}}</a>
       <nz-divider nzType="vertical"></nz-divider>
       <a>Delete</a>
     </td>

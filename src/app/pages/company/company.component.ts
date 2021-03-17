@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-
-
+import { VentiService } from 'src/app/service/venti.service';
 
 @Component({
   selector: 'app-company',
@@ -9,17 +8,12 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class CompanyComponent implements OnInit {
 
-  @Input() companyList: any [] = [];
+  companyList: any [] = [];
 
-  constructor() {
-    this.companyList = [
-      { name: 'Muhammet', age: 35, address: 'Sao Paulo' },
-      { name: 'Mehmet', age: 12, address: 'Miami' },
-      { name: 'Osman', age: 22, address: 'New York' }
-    ];
+  constructor(private ventiService :VentiService ) {
+    
   }
-
   ngOnInit() {
+    this.companyList = this.ventiService.getCompanyList()
   }
-
 }
